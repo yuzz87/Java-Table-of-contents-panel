@@ -1,0 +1,199 @@
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/*header*/
+.app-header {
+  padding: 16px 24px;
+  border-bottom: 5px solid #000000;
+  background-color: rgba(219, 102, 6, 0.5);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+/*body*/
+.app-body {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+.app-content {
+  flex: 7;
+  min-width: 0;
+  padding-right: 24px;
+  border-right: 5px solid #e5e7eb;
+  box-sizing: border-box;
+}
+
+.app-sidebar {
+  flex: 3;
+  min-width: 0;
+  position: relative;
+}
+
+.app-side-area {
+  position: sticky;
+  top: 24px;
+  min-height: 420px;
+  position: sticky;
+}
+
+/* 切り替えトリガー */
+.app-side-trigger {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 132px;
+  padding: 0;
+  background-color: #ddd;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  z-index: 20;
+  transition:
+    width 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.app-side-trigger:hover,
+.app-side-trigger:focus-visible {
+  width: 18px;
+  outline: none;
+  background: #93c5fd;
+}
+
+.app-side-trigger-dot {
+  width: 16px;
+  height: 6px;
+  background-color: black;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.app-side-panel {
+  position: absolute;
+  inset: 0;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease,
+    visibility 0.22s ease;
+}
+
+/* 通常は footer を表示 */
+.app-side-panel-footer {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  z-index: 2;
+  pointer-events: auto;
+}
+
+/* 通常は sidebar を隠す */
+.app-side-panel-sidebar {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(16px);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* 右端中央トリガーに hover/focus したら sidebar を表示 */
+.app-side-trigger:hover + .app-side-panel-sidebar,
+.app-side-trigger:focus-visible + .app-side-panel-sidebar,
+.app-side-panel-sidebar:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* sidebar が表示中は footer を隠す */
+.app-side-trigger:hover ~ .app-side-panel-footer,
+.app-side-trigger:focus-visible ~ .app-side-panel-footer,
+.app-side-panel-sidebar:hover ~ .app-side-panel-footer {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-16px);
+  pointer-events: none;
+}
+
+.message-block {
+  margin-bottom: 20px;
+  padding: 2px;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  background-color: rgba(5, 251, 255, 0.1);
+  scroll-margin-top: 24px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+.message-block-selected {
+  border-color: #2563eb;
+  background-color: #eff6ff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+  transform: translateY(-1px);
+}
+
+.message-role {
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+.message-content {
+  line-height: 1.7;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+/*footer*/
+.toc-footer {
+  padding: 16px;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+.toc-footer-textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+.toc-footer-button {
+  margin-top: 12px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  background-color: rgba(5, 251, 255, 0.1);
+  color: black;
+  cursor: pointer;
+  font: inherit;
+}
+
+.toc-footer-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
