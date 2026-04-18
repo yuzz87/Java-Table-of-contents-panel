@@ -7,7 +7,13 @@ frontend では React + TypeScript を使用し、backend では Spring Boot + M
 また、user メッセージを POST で追加すると、frontend の本文表示と目次パネルが同期して更新される構成になっています。
 
 ---
+## 実装画面
+<img width="1911" height="888" alt="image-1" src="https://github.com/user-attachments/assets/258c28b9-c6ed-4668-8c20-f64f636ebf42" />
 
+---
+<img width="1893" height="811" alt="image-2" src="https://github.com/user-attachments/assets/7c5be765-b26c-445f-a6c8-97749a86adf4" />
+
+---
 ## 主な機能
 
 - user メッセージ一覧の表示
